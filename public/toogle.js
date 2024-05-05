@@ -1,15 +1,15 @@
 const LIGHTMODE = "light";
 const DARKMODE = "dark";
 
-document.addEventListener("DOMContentLoaded", function () {
-  if (
-    localStorage.theme === LIGHTMODE ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: light)").matches)
-  ) {
-    document.documentElement.classList.remove(DARKMODE);
-  }
+if (
+  localStorage.theme === LIGHTMODE ||
+  (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: light)").matches)
+) {
+  document.documentElement.classList.remove(DARKMODE);
+}
 
+window.onload = () => {
   const checkbox = document.querySelector("#themeCheckbox");
 
   if (
@@ -29,4 +29,4 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.theme = DARKMODE;
     }
   });
-});
+};
